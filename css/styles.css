@@ -3004,15 +3004,15 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #00B945;
-  --bs-btn-border-color: #00B945;
+  --bs-btn-bg: #04414d;
+  --bs-btn-border-color: #04414d;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #238B49;
-  --bs-btn-hover-border-color: #238B49;
+  --bs-btn-hover-bg: #4f7a82;
+  --bs-btn-hover-border-color: #4f7a82;
   --bs-btn-focus-shadow-rgb: 64, 79, 245;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #00782D;
-  --bs-btn-active-border-color: #00782D;
+  --bs-btn-active-bg: #4f7a82;
+  --bs-btn-active-border-color: #4f7a82;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #63DC90;
@@ -12074,7 +12074,8 @@ ul.list-unstyled {
   margin: 0 auto; /* Выравнивание списка по центру */
 }
 .about .container {
-  max-width: 100%; /* Чтобы контейнер растягивался на всю доступную ширину */
+  max-width: 1560px; 
+  background-color: #106083;
 }
 
 /* Дополнительные стили для заголовка и текста внутри белого блока, если нужно */
@@ -12110,6 +12111,11 @@ ul.list-unstyled {
 .btn-concert {
   background-color: #04414d;
   border-color: #04414d;
+}
+
+.btn-concert:hover {
+  background-color: #033a45;
+  border-color: #033a45;
 }
 
 .video-section-custom {
