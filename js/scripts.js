@@ -68,74 +68,7 @@ document.querySelectorAll('.img-hover-zoom').forEach((item, index) => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("fs-frm");
-    const emailInput = document.getElementById("email-address");
-    const successMessage = document.getElementById("submitSuccessMessage");
-    const errorMessage = document.getElementById("submitErrorMessage");
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        resetValidationStates();
-
-        let isValid = true;
-
-        if (!form.checkValidity()) {
-            showValidationErrors();
-            isValid = false;
-        }
-
-        if (!validateEmail(emailInput.value)) {
-            emailInput.classList.add("is-invalid");
-            isValid = false;
-        }
-
-        if (!isValid) {
-            return;
-        }
-
-        const formData = new FormData(form);
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://formspree.io/f/xyyrkzpq", true);
-        xhr.setRequestHeader("Accept", "application/json");
-
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                successMessage.classList.remove("d-none");
-                errorMessage.classList.add("d-none");
-            } else {
-                errorMessage.textContent = "There was an error submitting the form. Please try again.";
-                errorMessage.classList.remove("d-none");
-            }
-        };
-
-        xhr.onerror = () => {
-            errorMessage.textContent = "There was a network error. Please check your internet connection and try again.";
-            errorMessage.classList.remove("d-none");
-        };
-
-        xhr.send(formData);
-    });
-
-    const resetValidationStates = () => {
-        form.querySelectorAll(".form-control").forEach(input => {
-            input.classList.remove("is-invalid");
-        });
-    };
-
-    const showValidationErrors = () => {
-        form.querySelectorAll(":invalid").forEach(input => {
-            input.classList.add("is-invalid");
-        });
-    };
-
-    const validateEmail = (email) => {
-        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return re.test(email.toLowerCase());
-    }
-});
 document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('loadMore');
     const albumCards = document.querySelectorAll('.album-card');
@@ -205,3 +138,154 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+var mySwiper = new Swiper('.swiper', {
+    // Параметры Swiper
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    // Включите свайпинг на всех устройствах
+    simulateTouch: true,
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const apiUrl = 'http://127.0.0.1:8000/products/';
+
+    fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const container = document.getElementById('products-container');
+        data.forEach(product => {
+            const productElement = document.createElement('div');
+            let imagesHtml = '';
+            product.images.forEach(image => {
+                imagesHtml += `<img src="${image.image}" alt="Product image" style="width:100px;height:auto;">`;
+            });
+
+            const colorSelect = document.createElement('select');
+            colorSelect.className = 'color-select';
+            product.variants.forEach(variant => {
+                const option = document.createElement('option');
+                option.value = variant.color; // Используем цвет как значение
+                option.textContent = variant.color; // и текст опции
+                colorSelect.appendChild(option);
+            });
+
+            const sizeSelect = document.createElement('select');
+            sizeSelect.className = 'size-select';
+
+            // Кнопки для управления количеством
+            const quantityControl = document.createElement('div');
+            const decreaseButton = document.createElement('button');
+            decreaseButton.textContent = '-';
+            const increaseButton = document.createElement('button');
+            increaseButton.textContent = '+';
+            const quantityDisplay = document.createElement('span');
+            let quantity = 0; // Начальное количество
+            quantityDisplay.textContent = quantity;
+
+            decreaseButton.addEventListener('click', () => {
+                if (quantity > 0) {
+                    quantity -= 1;
+                    quantityDisplay.textContent = quantity;
+                }
+            });
+
+            increaseButton.addEventListener('click', () => {
+                quantity += 1;
+                quantityDisplay.textContent = quantity;
+            });
+
+            // Кнопка "Добавить в корзину"
+            const addToCartButton = document.createElement('button');
+            addToCartButton.textContent = 'Добавить в корзину';
+            addToCartButton.className = 'btn btn-primary';
+            addToCartButton.addEventListener('click', function() {
+                let selectedColor = colorSelect.value;
+                let selectedSize = sizeSelect.value;
+                let availableQuantity; // Доступное количество для выбранного размера и цвета
+            
+                const selectedVariant = product.variants.find(variant => variant.color === selectedColor);
+                const sizeOption = selectedVariant.sizes.find(size => size.size === selectedSize);
+            
+                if (sizeOption) {
+                    availableQuantity = sizeOption.amount;
+                } else {
+                    alert("Ошибка: не удалось определить доступное количество.");
+                    return;
+                }
+            
+                if (quantity > 0 && quantity <= availableQuantity) {
+                    addToCart(product.name, quantity, selectedColor, selectedSize, availableQuantity);
+                    console.log(`Добавлено в корзину: ${product.name}, Цвет: ${selectedColor}, Размер: ${selectedSize}, Количество: ${quantity}`);
+                } else {
+                    alert("Пожалуйста, выберите корректное количество");
+                }
+            });
+
+            quantityControl.appendChild(decreaseButton);
+            quantityControl.appendChild(quantityDisplay);
+            quantityControl.appendChild(increaseButton);
+
+            colorSelect.addEventListener('change', function() {
+                const selectedColor = this.value;
+                const selectedVariant = product.variants.find(variant => variant.color === selectedColor);
+                
+                sizeSelect.innerHTML = '';
+
+                selectedVariant.sizes.forEach(size => {
+                    if (size.amount > 0) {
+                        const option = document.createElement('option');
+                        option.value = size.size;
+                        option.textContent = `${size.size} (Stock: ${size.amount})`;
+                        sizeSelect.appendChild(option);
+                    }
+                });
+            });
+
+            colorSelect.dispatchEvent(new Event('change'));
+
+            productElement.innerHTML = `<h3>${product.name}</h3><p>${product.description}</p>${imagesHtml}`;
+            productElement.appendChild(colorSelect);
+            productElement.appendChild(sizeSelect);
+            productElement.appendChild(quantityControl);
+            productElement.appendChild(addToCartButton); // Добавление кнопки в элемент продукта
+            container.appendChild(productElement);
+        });
+    })
+    .catch(error => console.error("Ошибка:", error));
+});
+
+
+function addToCart(product, quantity, color, size, availableQuantity) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    if (quantity > availableQuantity) {
+        alert("Невозможно добавить в корзину: запрашиваемое количество превышает доступное на складе.");
+        return;
+    }
+
+    const productIndex = cart.findIndex(item => item.product === product && item.color === color && item.size === size);
+
+    if (productIndex !== -1) {
+        // Если товар найден в корзине, заменяем его на новое количество
+        cart[productIndex] = { product, quantity, color, size };
+    } else {
+        // Если товар не найден, добавляем его
+        cart.push({ product, quantity, color, size });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}

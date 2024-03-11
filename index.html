@@ -17,7 +17,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     </head>
     <body class="d-flex flex-column h-100">
             <!-- Navigation-->
@@ -31,6 +32,7 @@
                             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="#albums">Albums</a></li>
                             <li class="nav-item"><a class="nav-link" href="#video">Videos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                         </ul>
                     </div>
                     <div></div>
@@ -135,6 +137,9 @@
                         </li>
                     </ul>
                 </section>
+                <section class="px-5 py-5 bg-white hidden">
+                    <div id="products-container"></div>
+                </section>
                 <section class="px-5 py-5 about" id="about">
                     <div class="container bg-white p-4 rounded-3 shadow">
                         <div class="row align-items-center">
@@ -221,71 +226,6 @@
                         allowfullscreen>
                     </iframe>
                 </section>
-            <!-- <div class="container hidden" id="contact">
-                <section class="py-5">
-                    <div class="container">
-                        <div class="bg-light rounded-4 py-5 px-4 px-md-5">
-                            <div class="text-center mb-5">
-                                <a class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3" href="mailto:nikolai.melnichenko.fe@gmail.com"><i class="bi bi-envelope"></i></a>
-                                <h1 class="fw-bolder">Get in touch</h1>
-                                <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
-                            </div>
-                            <div class="row gx-5 justify-content-center">
-                                <div class="col-lg-8 col-xl-6">
-                                    <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xyyrkzpq" method="post">
-                                        <fieldset id="fs-frm-inputs">
-                                            <div class="form-floating mb-3">
-                                                <input 
-                                                  class="form-control" 
-                                                  name="name" 
-                                                  id="full-name" 
-                                                  type="text" 
-                                                  placeholder="Enter your name" 
-                                                  required 
-                                                />
-                                                <label for="full-name">Full name</label>
-                                                <div class="invalid-feedback">A name is required.</div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input 
-                                                  class="form-control" 
-                                                  type="email" name="_replyto" 
-                                                  id="email-address" 
-                                                  placeholder="name@example.com" 
-                                                  required 
-                                                />
-                                                <label for="email-address">Email address</label>
-                                                <div class="invalid-feedback">A valid email is required.</div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <textarea 
-                                                  class="form-control" 
-                                                  name="message" 
-                                                  id="message" 
-                                                  placeholder="Enter your message here" 
-                                                  style="height: 10rem" 
-                                                  required 
-                                                  minlength="10"
-                                                ></textarea>
-                                                <label for="message">Message</label>
-                                                <div class="invalid-feedback">A message is required (minimum 10 characters).</div>
-                                            </div>
-                                            <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-                                        </fieldset>
-                                        <input type="submit" class="btn btn-primary btn-lg" id="submitButton" value="Submit">
-                                        <div class="d-none" id="submitSuccessMessage">
-                                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                                            <div class="text-center mb-3">
-                                                <div class="fw-bolder">Form submission successful!</div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div> -->
         </main>
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
@@ -298,6 +238,6 @@
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts.js"></script>            
     </body>
 </html>

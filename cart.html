@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - AP$ENT</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-3">
+        <div class="container px-5">
+            <a class="navbar-brand" href="index.html">AP$ENT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="concerts.html">Concerts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="albums.html">Albums</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="bg-light py-5">
+        <div class="container my-5">
+            <h2 class="fw-bold mb-4">Your Shopping Cart</h2>
+            <div id="cart-items" class="list-group">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <button class="btn btn-outline-secondary" onclick="emptyCart()">Empty Cart</button>
+                <button class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5">
+            <p class="text-center text-muted">© 2024 AP$ENT, All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Cart Script -->
+    <script>
+        function displayCartItems() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+
+            cartItemsContainer.innerHTML = ''; // Очищаем текущее содержимое
+
+            cart.forEach((item, index) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'list-group-item d-flex flex-column align-items-start';
+
+                // Добавляем картинку (замените 'path/to/image' на актуальный путь к изображению товара)
+                const itemImage = document.createElement('img');
+                itemImage.src = 'path/to/image';
+                itemImage.alt = 'Product Image';
+                itemImage.style.width = '100px'; // Пример размера, настройте под свой дизайн
+                itemImage.className = 'mb-3';
+
+                // Добавляем остальную информацию о товаре
+                const itemInfo = document.createElement('p');
+                itemInfo.innerHTML = `<strong>${index + 1}. ${item.product}</strong><br>Цвет: ${item.color}<br>Размер: ${item.size}<br>`;
+
+                // Добавляем управление количеством
+                const quantityControl = document.createElement('div');
+                quantityControl.className = 'd-flex align-items-center mb-3';
+                const decreaseButton = document.createElement('button');
+                decreaseButton.innerHTML = '-';
+                decreaseButton.className = 'btn btn-secondary btn-sm';
+                const quantityDisplay = document.createElement('span');
+                quantityDisplay.textContent = ` ${item.quantity} `;
+                const increaseButton = document.createElement('button');
+                increaseButton.innerHTML = '+';
+                increaseButton.className = 'btn btn-secondary btn-sm';
+
+                // Обработчики для кнопок изменения количества
+                decreaseButton.onclick = () => {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        displayCartItems(); // Обновляем отображение
+                    }
+                };
+
+                increaseButton.onclick = () => {
+                    // Здесь должна быть проверка на доступное количество, пока просто увеличиваем на 1
+                    item.quantity += 1;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems(); // Обновляем отображение
+                };
+
+                // Кнопка для удаления товара из корзины
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Удалить';
+                deleteButton.className = 'btn btn-danger btn-sm ms-auto';
+                deleteButton.onclick = () => {
+                    cart = cart.filter(prod => prod !== item);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    displayCartItems(); // Обновляем отображение
+                };
+
+                quantityControl.append(decreaseButton, quantityDisplay, increaseButton);
+
+                cartItemElement.append(itemImage, itemInfo, quantityControl, deleteButton);
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center">Ваша корзина пуста</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCartItems();
+        });
+    </script>
+</body>
+</html>
