@@ -112,15 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        window.scrollBy({ top: 100, behavior: 'smooth' });
-        setTimeout(() => {
-            window.scrollBy({ top: -100, behavior: 'smooth' });
-        }, 800);
-    }, 3000);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper-container', {
         slidesPerView: 1,
         spaceBetween: 30,
