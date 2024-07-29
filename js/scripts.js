@@ -31,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function() {
     const navbarCollapse = document.querySelector(".navbar-collapse");
     const navLinks = document.querySelectorAll(".nav-link");
+    const navbar = document.querySelector('.navbar');
 
     navLinks.forEach(function(link) {
         link.addEventListener("click", function() {
             navbarCollapse.classList.remove("show");
+            navbar.style.backgroundColor = 'hsl(186, 60%, 21%, 0.3)';
         });
     });
 });
@@ -136,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         }
-    }, 2000);
+    }, 1000);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -155,5 +157,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const toggler = document.querySelector('.navbar-toggler');
+
+    function updateNavbarBackground() {
+        if (toggler.getAttribute('aria-expanded') === 'true') {
+            navbar.style.backgroundColor = 'hsl(186, 60%, 21%)';
+        } else {
+            navbar.style.backgroundColor = 'hsl(186, 60%, 21%, 0.3)';
+        }
+    }
+
+    updateNavbarBackground();
+
+    toggler.addEventListener('click', function() {
+        setTimeout(updateNavbarBackground, 350);
     });
 });

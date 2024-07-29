@@ -3946,6 +3946,7 @@ textarea.form-control-lg {
   overflow: visible;
   display: flex;
   z-index: 40;
+  transition: background-color 0.35s ease-in-out;
 
 }
 .navbar > .container,
