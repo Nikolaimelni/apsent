@@ -3805,7 +3805,7 @@ textarea.form-control-lg {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 55px;
     color:white
 }
 @media (prefers-reduced-motion: reduce) {
