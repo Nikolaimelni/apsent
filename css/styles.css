@@ -54,7 +54,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: "Plus Jakarta Sans";
+  --bs-font-sans-serif: "Rubik";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -3795,7 +3795,7 @@ textarea.form-control-lg {
   color: var(--bs-nav-link-color);
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
   font-style: normal;
     line-height: 19px;
@@ -12133,66 +12133,98 @@ ul.list-unstyled {
 }
 
 .youtube-video-custom {
-  width:80%;
-  max-width: 1300px;
+  width:100%;
   height: 100%;
+}
+
+@media (max-width: 1440px) {
+  .youtube-video-custom {
+    width: 100%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .youtube-video-custom {
+    width: 100%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 920px) {
+  .youtube-video-custom {
+    width: 100%;
+    height: 50%;
+  }
 }
 
 @media (max-width: 768px) {
   .youtube-video-custom {
     width: 100%;
-    height: 70%;
+    height: 40%;
   }
 }
 
 @media (max-width: 450px) {
   .youtube-video-custom {
     width: 100%;
-    height: 50%;
-    margin-right: 100%;
+    height: 30%;
   }
+}
+
+/* .youtube-video-custom {
+  width:80%;
+  max-width: 1300px;
+  height: 500px;
+  min-height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .youtube-video-custom {
+    width: 80%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .youtube-video-custom {
+    width: 800%;
+    height: 100%;
+  }
+} */
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .swiper-slide {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 320px; /* Фиксированная высота для единообразия */
-  width: 100%; /* Адаптивная ширина для полной ширины слайда */
-  max-width: 280px; /* Максимальная ширина для контроля размера слайда */
-  margin-right: 30px; /* Отступы для разделения слайдов */
-}
-
-.swiper-slide iframe {
-  height: 100%; /* Принудительная высота iframe для соответствия контейнеру */
-  width: 100%; /* Адаптивная ширина для соответствия контейнеру */
-}
-
-.swiper-wrapper {
-  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.cart-sidebar {
-  position: fixed;
-  top: 0;
-  left: -100%; /* Скрыть корзину за левой границей */
-  width: 300px;
+  width: 100%;
   height: 100%;
-  background-color: #fff;
-  box-shadow: 2px 0 5px rgba(0,0,0,.5);
-  transition: left 0.3s ease;
-  z-index: 1050; /* Чтобы была над другими элементами */
 }
 
-.cart-sidebar.active {
-  left: 0; /* Показать корзину */
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.close-cart {
-  font-size: 24px;
-  cursor: pointer;
-  border: none;
-  background: none;
+
+.language-options {
+  display: flex;
+  gap: 15px;
+}
+.navbar-nav .language-options {
+  flex-direction: row;
+  align-items: center;
+}
+.navbar-nav .language-options a {
+  text-decoration: none;
 }
