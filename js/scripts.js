@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         }
-    }, 3500);
+    }, 2000);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
