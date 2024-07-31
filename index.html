@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f4f4f4;
-        }
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var userLang = navigator.language || navigator.userLanguage; 
-            setTimeout(function() {
-                if (userLang.includes('ru')) {
-                    window.location.href = 'ru/';
-                } else if (userLang.includes('pl')) {
-                    window.location.href = 'pl/';
-                } else {
-                    window.location.href = 'en/';
-                }
-            }, 500);
-        });
-    </script>
-</head>
-<body>
-    <div class="loader"></div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redirecting to AP$ENT Official Website</title>
+        <meta name="description" content="Redirecting to the appropriate language version of AP$ENT official website.">
+        <meta name="keywords" content="AP$ENT, electronic music, redirect">
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f4f4f4;
+            }
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-top: 16px solid #3498db;
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var userLang = navigator.language || navigator.userLanguage; 
+                setTimeout(function() {
+                    if (userLang.includes('ru')) {
+                        window.location.href = 'ru/';
+                    } else if (userLang.includes('pl')) {
+                        window.location.href = 'pl/';
+                    } else {
+                        window.location.href = 'en/';
+                    }
+                }, 500);
+            });
+        </script>
+        <!-- JSON-LD structured data -->
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "MusicGroup",
+            "name": "AP$ENT",
+            "url": "https://apsentofficial.com",
+            "image": "URL_TO_IMAGE",
+            "description": "Discover the music of AP$ENT, the musician from Belarus. Find out more about concerts, albums, and social networks.",
+            "genre": "Music",
+            "identifier": "AP$ENT"
+            }
+        </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D2FQCLG8X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6D2FQCLG8X');
+        </script>
+    </head>
+    <body>
+        <div class="loader"></div>
+    </body>
 </html>

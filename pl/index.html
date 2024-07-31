@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Musician AP$ENT">
-        <meta name="keywords" content="APSENT, AP$ENT, MUSIC">
+        <meta name="description" content="Odkryj muzykę AP$ENT, białoruskiego muzyka. Dowiedz się więcej o koncertach, albumach i sieciach społecznościowych.">
+        <meta name="keywords" content="AP$ENT, apsent, muzyka, białoruski muzyk, koncerty, albumy, можно я с тобой, песенка веселого беларуса, лайналак">
         <meta name="author" content="Nikolai Melnichenko">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://nikolaidev.online">
-        <meta property="og:title" content="AP$ENT">
-        <title>AP$ENT</title>
+        <meta property="og:url" content="https://apsentofficial.com">
+        <meta property="og:title" content="AP$ENT Oficjalna Strona - Muzyk z Białorusi">
+        <meta property="og:description" content="Odkryj muzykę AP$ENT, białoruskiego muzyka. Dowiedz się więcej o koncertach, albumach i sieciach społecznościowych.">
+        <meta property="og:image" content="URL_TO_IMAGE">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://apsentofficial.com">
+        <meta name="twitter:title" content="AP$ENT Oficjalna Strona - Muzyk z Białorusi">
+        <meta name="twitter:description" content="Odkryj muzykę AP$ENT, białoruskiego muzyka. Dowiedz się więcej o koncertach, albumach i sieciach społecznościowych.">
+        <meta name="twitter:image" content="URL_TO_IMAGE">
+        <link rel="alternate" href="https://apsentofficial.com/en/" hreflang="en">
+        <link rel="alternate" href="https://apsentofficial.com/ru/" hreflang="ru">
+        <link rel="alternate" href="https://apsentofficial.com/pl/" hreflang="pl">
+        <title>AP$ENT Oficjalna Strona - Muzyk z Białorusi</title>
         <link rel="icon" type="image/x-icon" href="../assets/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +31,26 @@
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script async src="https://www.tiktok.com/embed.js"></script>
         <script async src="//www.instagram.com/embed.js"></script>
+            <!-- JSON-LD structured data -->
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "MusicGroup",
+            "name": "AP$ENT",
+            "url": "https://apsentofficial.com/pl",
+            "description": "Odkryj muzykę AP$ENT, białoruskiego muzyka. Dowiedz się więcej o koncertach, albumach i sieciach społecznościowych.",
+            "genre": "Music",
+            "identifier": "AP$ENT"
+            }
+        </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D2FQCLG8X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6D2FQCLG8X');
+        </script>
     </head>
     <body class="d-flex flex-column h-100">
         <!-- Navigation-->
@@ -29,16 +59,16 @@
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                        <li class="nav-item"><a class="nav-link" href="#concerts" data-translate-key="concerts">Concerts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about" data-translate-key="about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#albums" data-translate-key="albums">Albums</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#socials" data-translate-key="socials">Socials</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#video" data-translate-key="videos">Videos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#concerts" data-translate-key="concerts">Koncerty</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about" data-translate-key="about">O mnie</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#albums" data-translate-key="albums">Albumy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#socials" data-translate-key="socials">Media społecznościowe</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#video" data-translate-key="videos">Wideo</a></li>
                         <li class="nav-item language-options">
                             <a class="nav-link" href="/en">EN</a>
                             <a class="nav-link" href="/pl">PL</a>
                             <a class="nav-link" href="/ru">RU</a>
-                        </li>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -50,31 +80,31 @@
         </header>
         <main class="flex-shrink-0">
             <section class="px-5 py-5 bg-white hidden concerts" id="concerts">
-                <h1 class="text-center mb-5">Concerts</h1>
+                <h1 class="text-center mb-5">Koncerty</h1>
                 <ul class="list-unstyled">
                     <li class="mb-4">
                         <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
                             <div>
-                                <h2 class="concertsItem__title mb-0">RIGA</h2>
-                                <a class= "text-decoration-none map-link" href="https://maps.app.goo.gl/THSSLcmLifUdSbzo7" target="_blank" class="text-primary">FIRST CLUB</a>
-                                <p class="concertsItem__date mb-1">September 13, 2024</p>
-                                <p class="concertsItem__description">19:00</p>
+                                <h2 class="concertsItem__title mb-0">RYGA</h2>
+                                <a class="text-decoration-none map-link" href="https://maps.app.goo.gl/THSSLcmLifUdSbzo7" target="_blank" class="text-primary">FIRST CLUB</a>
+                                <p class="concertsItem__date mb-0">13 września 2024</p>
+                                <p class="concertsItem__date">19:00</p>
                             </div>
-                            <a href="https://ticketshop.lv/lv/events/6284" target="_blank" class="btn btn-primary btn-concert concertsItem__button">Tickets</a>
+                            <a href="https://ticketshop.lv/lv/events/6284" target="_blank" class="btn btn-primary btn-concert concertsItem__button">Bilety</a>
                         </div>
                     </li>
                     <li class="mb-4">
                         <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
                             <div>
                                 <h2 class="concertsItem__title mb-0">WARSZAWA</h2>
-                                <a class= "text-decoration-none map-link" href="https://maps.app.goo.gl/dGeRygamBeXucBBJ8" target="_blank" class="text-primary">OCZKI</a>
-                                <p class="concertsItem__date mb-1">September 15, 2024</p>
-                                <p class="concertsItem__description">19:00</p>
+                                <a class="text-decoration-none map-link" href="https://maps.app.goo.gl/dGeRygamBeXucBBJ8" target="_blank" class="text-primary">OCZKI</a>
+                                <p class="concertsItem__date mb-0">15 września 2024</p>
+                                <p class="concertsItem__date">19:00</p>
                             </div>
-                            <a href="https://ticketshop.store/en/events/6285" target="_blank" class="btn btn-primary btn-concert concertsItem__button">Tickets</a>
+                            <a href="https://ticketshop.store/en/events/6285" target="_blank" class="btn btn-primary btn-concert concertsItem__button">Bilety</a>
                         </div>
                     </li>
-                </ul>
+                </ul>                
             </section>
             <section class="px-5 py-5 about">
                 <div class="container bg-white p-4 rounded-3 shadow" id="about">
@@ -82,9 +112,9 @@
                         <div class="col-md-7">
                             <h1>AP$ENT</h1>
                             <p class="mb-3">
-                                Арсений Кисляк, более известный как Ap$ent, — белорусский электронный музыкант и создатель проекта "AP$ENT". Родился в Харькове, но в детстве переехал в Беларусь, где и начал свою музыкальную карьеру. Прежде чем полностью посвятить себя музыке, успел попробовать себя в бизнесе и финансах.
+                                Arseniy Kislyak, lepiej znany jako Ap$ent, jest białoruskim muzykiem. Urodził się w Charkowie, ale w dzieciństwie przeprowadził się na Białoruś, gdzie rozpoczął swoją karierę muzyczną. Zanim całkowicie poświęcił się muzyce, próbował swoich sił w biznesie i finansach.
                                 <br>
-                                В 2018 году он создао проект "AP$ENT" — проекта, который мгновенно захватил внимание публики своими электронными ритмами и глубокими текстами. Он не боится затрагивать острые социальные темы в своих треках, что делает его музыку особенно актуальной. 
+                                W 2018 roku stworzył projekt "AP$ENT", który natychmiast przyciągnął uwagę publiczności swoimi rytmami i głębokimi tekstami. Nie boi się poruszać ostrych kwestii społecznych w swoich utworach, co sprawia, że jego muzyka jest szczególnie aktualna.
                             </p>
                             <div class="mb-3">
                                 <iframe 
@@ -118,7 +148,7 @@
             </section>
             <section class="albums bg-white px-5 py-5 mt-5 hidden" id="albums">
                 <div class="container">
-                    <h1 class="d-flex justify-content-center mb-2">ALBUMS</h1>
+                    <h1 class="d-flex justify-content-center mb-2">ALBUMY</h1>
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 album-card" style="display: none;">
                             <a href="https://open.spotify.com/album/5CnrtQ5cOZ3E20TAugsHvW?si=DnM64OFlTY6ZZqBmZPGjnA" target="_blank">
@@ -126,21 +156,21 @@
                                 <h5 class="mt-2">Здравствуйте ветра</h5>
                                 <p class="year">2024</p>
                             </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 album-card" style="display: none;">
-                            <a href="https://open.spotify.com/album/6HYtvmYbaAtDTBA3VbEUgO?si=VzZqAQjqSimAisW7gPPLzQ" target="_blank">
-                                <img src="../assets/songs/apsent_stay.JPG" class="img-fluid rounded-3" alt="Можно я с тобой">
-                                <h5 class="mt-2">Можно я с тобой</h5>
-                                <p class="year">2024</p>
-                            </a>
-                        </div>                            
+                        </div>                         
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 album-card" style="display: none;">
                             <a href="https://open.spotify.com/album/304PqKkxqhL9nVMTFbyt5d?si=Edd9N_89QDCqd3btfztbMw" target="_blank">
                                 <img src="../assets/songs/i_will_stay.JPG" class="img-fluid" alt="Я пока побуду">
                                 <h5 class="mt-2">Я пока побуду</h5>
                                 <p class="year">2024</p>
                             </a>
-                        </div>                     
+                        </div> 
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 album-card" style="display: none;">
+                            <a href="https://open.spotify.com/album/69Tj7oFXmZaYrja5o672mg?si=nhCEFyuBSK-U_Y0VNUP_BQ" target="_blank">
+                                <img src="../assets/songs/apsent_stay.JPG" class="img-fluid rounded-3" alt="Можно я с тобой">
+                                <h5 class="mt-2">Можно я с тобой</h5>
+                                <p class="year">2023</p>
+                            </a>
+                        </div>                       
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 album-card" style="display: none;">
                             <a href="https://open.spotify.com/album/3U1HkdRCMx1aQ4g7uZt2yh?si=nvWy4yZaQe2rN1ux-DvEEg" target="_blank">
                                 <img src="../assets/songs/kachanne.JPG" class="img-fluid" alt="kachanne">
@@ -253,7 +283,7 @@
             <section class="px-2 py-5 about">
                 <div class="container bg-white p-4 rounded-3 shadow" id="socials">
                     <div class="row align-items-center">
-                        <h1 class="d-flex justify-content-center mb-2">My Social Networks</h1>
+                        <h1 class="d-flex justify-content-center mb-2">Moje sieci społecznościowe</h1>
                         <div class="col-md-6 d-flex justify-content-center">
                             <!--instagram reel-->
                             <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C7j0kUSoSE9/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/C7j0kUSoSE9/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/C7j0kUSoSE9/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от AP$ENT (@senya_apsent)</a></p></div></blockquote>
