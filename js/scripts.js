@@ -178,3 +178,81 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(updateNavbarBackground, 350);
     });
 });
+
+let language = 'EN';
+if (window.location.href.includes('/ru')) {
+    language = 'RU';
+} else if (window.location.href.includes('/pl')) {
+    language = 'PL';
+}
+
+async function fetchConcerts() {
+    const url = 'https://docs.google.com/spreadsheets/d/1oA5ZCwVlH67Ejx4714vxWCjljKfPNlO1MSZxrLekoHo/gviz/tq?tqx=out:csv&sheet=Sheet1';
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        const data = await response.text();
+
+        let rows = data.split('\n').map(row => row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
+
+        rows = rows.filter(row => row && row.length).map(row => row.map(cell => cell.replace(/(^"|"$)/g, '').trim()));
+
+        const filteredConcerts = rows.slice(1).filter(row => row[6].toUpperCase() === language);
+
+        return filteredConcerts;
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+function renderConcerts(concerts) {
+    const concertsContainer = document.querySelector('#concerts ul');
+    concertsContainer.innerHTML = '';
+
+    let ticketText = '';
+
+    switch (language) {
+        case 'RU':
+            ticketText = 'Билеты';
+            break;
+        case 'PL':
+            ticketText = 'Bilety';
+            break;
+        default:
+            ticketText = 'Tickets';
+            break;
+    }
+
+    if (!concerts || concerts.length === 0) {
+        concertsContainer.innerHTML = '<li>No concerts available for this language.</li>';
+        return;
+    }
+
+    concerts.forEach(concert => {
+        const [city, venue, date, time, ticketsLink, mapLink] = concert;
+
+        const concertHTML = `
+            <li class="mb-4">
+                <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
+                    <div>
+                        <h2 class="concertsItem__title mb-0">${city}</h2>
+                        <a class="text-decoration-none map-link" href="${mapLink}" target="_blank">${venue}</a>
+                        <p class="concertsItem__date mb-0">${date}</p>
+                        <p class="concertsItem__date">${time}</p>
+                    </div>
+                    <a href="${ticketsLink}" target="_blank" class="btn btn-primary btn-concert concertsItem__button">${ticketText}</a>
+                </div>
+            </li>
+        `;
+
+        concertsContainer.innerHTML += concertHTML;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchConcerts().then(concerts => {
+        renderConcerts(concerts);
+    });
+});
